@@ -1,0 +1,18 @@
+services:
+  java-api:
+    image: openjdk:17-jdk
+    container_name: LooqBoxTest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./src:/app/src
+      - ./target:/app/target
+    networks:
+      - looqbox
+
+networks:
+  looqbox:
+    driver: bridge
