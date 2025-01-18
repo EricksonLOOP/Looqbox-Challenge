@@ -15,11 +15,12 @@ public class CacheServicesImpl implements CacheServices{
 
     private final Map<String, CacheItem> cache = new HashMap<>();
 
-    @Autowired
+    @Override
     public void addtoCache(String key, PokemonDTO value) {
         cache.put(key, new CacheItem(value, System.currentTimeMillis()));
     }
-    @Autowired
+
+    @Override
     public PokemonDTO getFromCacheAsPokemonDTO(String key) {
         CacheItem cacheItem = cache.get(key);
         if (cacheItem != null && isExpired(cacheItem)) {
@@ -41,7 +42,7 @@ public class CacheServicesImpl implements CacheServices{
         long cacheExpiryTime = 600000;
         return (System.currentTimeMillis() - cacheItem.getTimestamp()) <= cacheExpiryTime;
     }
-    @Autowired
+    @Override
     public boolean isInCache(String key) {
         return getFromCacheAsPokemonDTO(key) != null;
     }
