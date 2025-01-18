@@ -4,8 +4,8 @@ import com.edev.looqbox.challange.Model.PokemonDTO;
 import com.edev.looqbox.challange.Model.PokemonDTOWithHighlight;
 import com.edev.looqbox.challange.Model.PokemonResponse;
 import com.edev.looqbox.challange.Service.OkHttpServices.OkHttpServices;
-import com.edev.looqbox.challange.Service.appServices.AppServices;
-import com.edev.looqbox.challange.Service.consumerService.CacheClient;
+import com.edev.looqbox.challange.Service.consumerService.LooqAppClient.LooqAppClient;
+import com.edev.looqbox.challange.Service.consumerService.CacheClient.CacheClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
@@ -18,16 +18,16 @@ public class PokemonServiceImpl implements PokemonServices {
     @Autowired
     private final OkHttpServices okHttpServices;
     @Autowired
-    private final AppServices appServices;
+    private final LooqAppClient appClient;
     @Autowired
     private final CacheClient cacheClient;
 
     @Value("${pokeapi.url}")
     private String apiUrl;
 
-    public PokemonServiceImpl(OkHttpServices okHttpServices, AppServices appServices, CacheClient cacheClient) {
+    public PokemonServiceImpl(OkHttpServices okHttpServices, LooqAppClient appClient, CacheClient cacheClient) {
         this.okHttpServices = okHttpServices;
-        this.appServices = appServices;
+        this.appClient = appClient;
 
         this.cacheClient = cacheClient;
     }
@@ -47,20 +47,20 @@ public class PokemonServiceImpl implements PokemonServices {
 
             if (cacheClient.isInCache(query.toLowerCase())) {
                 PokemonDTO cachedPokemon = cacheClient.getPokemonDto(query.toLowerCase());
-                return ResponseEntity.status(HttpStatus.OK).body(appServices.sort(sort, cachedPokemon));  // Passar sort limpo
+                return ResponseEntity.status(HttpStatus.OK).body(appClient.sort(sort, cachedPokemon));  // Passar sort limpo
             }
 
             if (cacheClient.isInCache("noquery")) {
                 PokemonDTO cachedNoQueryPokemon = cacheClient.getPokemonDto("noquery");
-                PokemonDTO filteredPokemon = appServices.filterByQuery(query, cachedNoQueryPokemon);
+                PokemonDTO filteredPokemon = appClient.filterByQuery(query, cachedNoQueryPokemon);
                 cacheClient.addToCache(query.toLowerCase(), filteredPokemon);
-                return ResponseEntity.status(HttpStatus.OK).body(appServices.sort(sort, filteredPokemon));  // Passar sort limpo
+                return ResponseEntity.status(HttpStatus.OK).body(appClient.sort(sort, filteredPokemon));  // Passar sort limpo
             }
 
             PokemonResponse response = okHttpServices.getPokemons(apiUrl);
-            PokemonDTO pokemonDTO = appServices.createPokemonDto(response);
+            PokemonDTO pokemonDTO = appClient.createPokemonDto(response);
             cacheClient.addToCache("noquery", pokemonDTO);
-            PokemonDTO filteredPokemon = appServices.filterByQuery(query, pokemonDTO);
+            PokemonDTO filteredPokemon = appClient.filterByQuery(query, pokemonDTO);
             cacheClient.addToCache(query.toLowerCase(), filteredPokemon);
             return ResponseEntity.status(HttpStatus.OK).body(filteredPokemon);
 
@@ -84,22 +84,22 @@ public class PokemonServiceImpl implements PokemonServices {
 
             if (cacheClient.isInCache(query.toLowerCase())) {
                 PokemonDTO cachedPokemon = cacheClient.getPokemonDto(query.toLowerCase());
-                PokemonDTO filteredPokemon = appServices.filterByQuery(query, cachedPokemon);
-                return ResponseEntity.ok(new PokemonDTOWithHighlight(appServices.generateHighlightedResponse(filteredPokemon, query)));
+                PokemonDTO filteredPokemon = appClient.filterByQuery(query, cachedPokemon);
+                return ResponseEntity.ok(new PokemonDTOWithHighlight(appClient.generateHighlightedResponse(filteredPokemon, query)));
             }
 
             if (cacheClient.isInCache("noquery")) {
                 PokemonDTO cachedNoQueryPokemon = cacheClient.getPokemonDto("noquery");
-                PokemonDTO filteredPokemon = appServices.filterByQuery(query, cachedNoQueryPokemon);
-                return ResponseEntity.ok(new PokemonDTOWithHighlight(appServices.generateHighlightedResponse(filteredPokemon, query)));
+                PokemonDTO filteredPokemon = appClient.filterByQuery(query, cachedNoQueryPokemon);
+                return ResponseEntity.ok(new PokemonDTOWithHighlight(appClient.generateHighlightedResponse(filteredPokemon, query)));
             }
 
             PokemonResponse response = okHttpServices.getPokemons(apiUrl);
-            PokemonDTO pokemonDTO = appServices.createPokemonDto(response);
+            PokemonDTO pokemonDTO = appClient.createPokemonDto(response);
             cacheClient.addToCache("noquery", pokemonDTO);
-            PokemonDTO filteredPokemon = appServices.filterByQuery(query, pokemonDTO);
+            PokemonDTO filteredPokemon = appClient.filterByQuery(query, pokemonDTO);
             cacheClient.addToCache(query.toLowerCase(), filteredPokemon);
-            return ResponseEntity.ok(new PokemonDTOWithHighlight(appServices.generateHighlightedResponse(filteredPokemon, query)));
+            return ResponseEntity.ok(new PokemonDTOWithHighlight(appClient.generateHighlightedResponse(filteredPokemon, query)));
 
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error fetching highlighted pokemons: " + e.getCause());
@@ -109,12 +109,12 @@ public class PokemonServiceImpl implements PokemonServices {
     private ResponseEntity<?> handleNoQueryCache(String sort) {
         if (cacheClient.isInCache("noquery")) {
             PokemonDTO cachedNoQueryPokemon = cacheClient.getPokemonDto("noquery");
-            return ResponseEntity.ok(appServices.sort(sort, cachedNoQueryPokemon));
+            return ResponseEntity.ok(appClient.sort(sort, cachedNoQueryPokemon));
         }
 
         PokemonResponse response = okHttpServices.getPokemons(apiUrl);
-        PokemonDTO pokemonDTO = appServices.createPokemonDto(response);
+        PokemonDTO pokemonDTO = appClient.createPokemonDto(response);
         cacheClient.addToCache("noquery", pokemonDTO);
-        return ResponseEntity.ok(appServices.sort(sort, pokemonDTO));
+        return ResponseEntity.ok(appClient.sort(sort, pokemonDTO));
     }
 }

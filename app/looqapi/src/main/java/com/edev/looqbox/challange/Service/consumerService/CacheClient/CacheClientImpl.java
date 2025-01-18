@@ -1,4 +1,4 @@
-package com.edev.looqbox.challange.Service.consumerService;
+package com.edev.looqbox.challange.Service.consumerService.CacheClient;
 
 import com.edev.looqbox.challange.Model.CacheRequest;
 import com.edev.looqbox.challange.Model.PokemonDTO;

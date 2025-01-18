@@ -1,4 +1,4 @@
-package com.edev.looqbox.challange.Service.appServices;
+package com.edev.looqbox.challange.Service.AppServices;
 
 import com.edev.looqbox.challange.Model.Pokemon;
 import com.edev.looqbox.challange.Model.PokemonDTO;

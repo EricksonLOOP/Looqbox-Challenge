@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: Looqbox-Challenge
+server:
+  port: 8082
+pokeapi:
+  url: https://pokeapi.co/api/v2/pokemon?limit=100000

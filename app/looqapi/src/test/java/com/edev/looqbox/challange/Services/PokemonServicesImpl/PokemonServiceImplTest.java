@@ -5,7 +5,7 @@ import com.edev.looqbox.challange.Model.PokemonDTO;
 import com.edev.looqbox.challange.Model.PokemonResponse;
 import com.edev.looqbox.challange.Service.OkHttpServices.OkHttpServices;
 import com.edev.looqbox.challange.Service.PokemonServices.PokemonServiceImpl;
-import com.edev.looqbox.challange.Service.appServices.AppServices;
+import com.edev.looqbox.challange.Service.consumerService.LooqAppClient.LooqAppClient;
 import com.edev.looqbox.challange.Service.cacheServices.CacheServices;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -28,7 +28,7 @@ public class PokemonServiceImplTest {
     private CacheServices cacheServices;
 
     @Mock
-    private AppServices appServices;
+    private LooqAppClient appServices;
 
     @InjectMocks
     private PokemonServiceImpl pokemonService;
