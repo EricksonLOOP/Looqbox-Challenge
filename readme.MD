@@ -2,4 +2,8 @@
 <p>This is a answer for the technical test by LooqBox </p>
 <p>This project is a SpringBoot API that consume PokéAPI</p>
 <h2>Endpoints</h2>
-<li><b style="color: green;s">GET</b>/pokemon</li>
+<li><b >GET </b>/pokemon</li>
+<div>
+    <h5>Params</h5>
+    <span><pre><b>query</b></pre></span>
+</div>
