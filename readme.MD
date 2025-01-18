@@ -8,3 +8,16 @@
     <span><pre><b>query: String | Required: false</b></pre></span>
     <span><pre><b>sort: String | Required: false | Variants: "alphabetical" - "length"</b></pre></span>
 </div>
+<div>
+    <h5>Return</h5>
+    <div>
+   <code>
+<pre>
+return:[
+List< PokemonDTO >
+]
+</pre>
+    </code>
+    </div>
+    <span><pre><b>sort: String | Required: false | Variants: "alphabetical" - "length"</b></pre></span>
+</div>
