@@ -6,8 +6,11 @@ import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
 import com.squareup.okhttp.Response;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.stereotype.Service;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,7 +33,7 @@ public class OkHttpServicesImpl implements OkHttpServices{
             } else {
                 return null;
             }
-        } catch (Exception e) {
+        } catch (IOException e) {
             throw new RuntimeException(e.getCause());
         }
     }
@@ -61,7 +64,9 @@ public class OkHttpServicesImpl implements OkHttpServices{
                     resBodytoJSONObject.optString("previous"),
                     pokemons
             );
-        } catch (Exception e) {
+        }catch (JSONException e) {
+            throw new JSONException(e.getCause());
+        }catch (Exception e) {
             throw new RuntimeException(e.getCause());
         }
     }

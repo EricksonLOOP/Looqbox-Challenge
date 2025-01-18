@@ -9,7 +9,7 @@ import java.util.Map;
 
 @Service
 public class CacheServicesImpl implements CacheServices{
-    private Map<String, Object> inMemorieCache = new HashMap<>();
+    private final Map<String, Object> inMemorieCache = new HashMap<>();
     @Override
     public void addtoCache(String key, PokemonDTO value) {
         inMemorieCache.put(key, value);

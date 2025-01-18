@@ -2,4 +2,4 @@ spring:
   application:
     name: Looqbox-Challenge
 pokeapi:
-  base-url: https://pokeapi.co/api/v2
+  url: https://pokeapi.co/api/v2/pokemon?limit=100000

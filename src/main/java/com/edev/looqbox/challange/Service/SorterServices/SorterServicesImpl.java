@@ -7,9 +7,9 @@ import java.util.List;
 @Service
 public class SorterServicesImpl implements SorterServices{
 
-//    Ambos os métodos implementam o Bubble Sort, é um algoritimo de ordenação simples.
-//    Quando o algorítimo esta ordenado de forma inversa ocorre o pior caso do Big-θ, pois o tempo tomado é maior
-//    Levando a formula de O(n²), n = list.length, pois cada elemento deve ser comparado com o restante da lista para ser comparado
+// Ambos os métodos implementam o Bubble Sort, é um algoritimo de ordenação simples.
+// Quando o algorítimo esta ordenado de forma inversa ocorre o pior caso do Big-θ, pois o tempo tomado é maior
+// Levando a formula de O(n²), n = list.length, pois cada elemento deve ser comparado com o restante da lista para ser comparado
 // Se a lista ja estiver ordenada, ocorre o melhor caso, entretanto, o algorítimo ainda necessitará percorrer toda a lista para
 // Comparar todos os elementos
 // O espaço se dar a por O(1), pois nãp há a necessidade de memória adicional

@@ -6,9 +6,12 @@ import com.edev.looqbox.challange.Model.PokemonResponse;
 import com.edev.looqbox.challange.Service.OkHttpServices.OkHttpServices;
 import com.edev.looqbox.challange.Service.appServices.AppServices;
 import com.edev.looqbox.challange.Service.cacheServices.CacheServices;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+
+import java.io.IOException;
 
 @Service
 public class PokemonServiceImpl implements PokemonServices {
@@ -16,12 +19,15 @@ public class PokemonServiceImpl implements PokemonServices {
     private final OkHttpServices okHttpServices;
     private final CacheServices cacheServices;
     private final AppServices appServices;
-    private final String apiUrl = "https://pokeapi.co/api/v2/pokemon?limit=100000";
+
+    @Value("${pokeapi.url}")
+    private String apiUrl;
 
     public PokemonServiceImpl(OkHttpServices okHttpServices, CacheServices cacheServices, AppServices appServices) {
         this.okHttpServices = okHttpServices;
         this.cacheServices = cacheServices;
         this.appServices = appServices;
+
     }
 
     @Override
@@ -33,14 +39,14 @@ public class PokemonServiceImpl implements PokemonServices {
 
             if (cacheServices.isInCache(query.toLowerCase())) {
                 PokemonDTO cachedPokemon = cacheServices.getFromCacheAsPokemonDTO(query.toLowerCase());
-                return ResponseEntity.ok(appServices.sort(sort, cachedPokemon));
+                return ResponseEntity.status(HttpStatus.OK).body(appServices.sort(sort, cachedPokemon));
             }
 
             if (cacheServices.isInCache("noquery")) {
                 PokemonDTO cachedNoQueryPokemon = cacheServices.getFromCacheAsPokemonDTO("noquery");
                 PokemonDTO filteredPokemon = appServices.filterByQuery(query, cachedNoQueryPokemon);
                 cacheServices.addtoCache(query.toLowerCase(), filteredPokemon);
-                return ResponseEntity.ok(appServices.sort(sort, filteredPokemon));
+                return ResponseEntity.status(HttpStatus.OK).body(appServices.sort(sort, filteredPokemon));
             }
 
             PokemonResponse response = okHttpServices.getPokemons(apiUrl);
@@ -48,7 +54,7 @@ public class PokemonServiceImpl implements PokemonServices {
             cacheServices.addtoCache("noquery", pokemonDTO);
             PokemonDTO filteredPokemon = appServices.filterByQuery(query, pokemonDTO);
             cacheServices.addtoCache(query.toLowerCase(), filteredPokemon);
-            return ResponseEntity.ok(filteredPokemon);
+            return ResponseEntity.status(HttpStatus.OK).body(filteredPokemon);
 
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error fetching pokemons: " + e.getCause());
