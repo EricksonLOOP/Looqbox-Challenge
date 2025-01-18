@@ -62,3 +62,6 @@ List< <b>Pokemon</b> >
     String highlight;
 </pre>
 </code>
+
+<h2> Fluxogram</h2>
+<img src="/fluxogram.png" alt="A fluxogram example for LooqBox Challenge API">
