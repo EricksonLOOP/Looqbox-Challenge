@@ -14,7 +14,7 @@
    <code><pre>
 <b>HTTP STATUS: 200</b>
 return:[
-List< PokemonDTO >
+List< <b>PokemonDTO</b> >
 ]
 </pre></code>
     </div>
@@ -37,7 +37,7 @@ List< PokemonDTO >
    <code><pre>
 <b>HTTP STATUS: 200</b>
 return:[
-List< Pokemon >
+List< <b>Pokemon</b> >
 ]
 </pre></code>
     </div>
