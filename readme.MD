@@ -6,4 +6,5 @@
 <div>
     <h5>Params</h5>
     <span><pre><b>query: String | Required: false</b></pre></span>
+    <span><pre><b>sort: String | Required: false | Variants: "alphabetical" - "length"</b></pre></span>
 </div>
