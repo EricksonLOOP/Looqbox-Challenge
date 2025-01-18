@@ -64,4 +64,4 @@ List< <b>Pokemon</b> >
 </code>
 
 <h2> Fluxogram</h2>
-<img src="/fluxogram.png" alt="A fluxogram example for LooqBox Challenge API">
+<img src="fluxogram.png" alt="A fluxogram example for LooqBox Challenge API">
