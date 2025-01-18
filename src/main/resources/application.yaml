@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: Looqbox-Challenge
+pokeapi:
+  base-url: https://pokeapi.co/api/v2
