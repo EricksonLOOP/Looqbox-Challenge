@@ -11,13 +11,12 @@
 <div>
     <h5>Return</h5>
     <div>
-   <code>
-<pre>
+   <code><pre>
+<b>HTTP STATUS: 200</b>
 return:[
 List< PokemonDTO >
 ]
-</pre>
-    </code>
+</pre></code>
     </div>
     <span><pre><b>sort: String | Required: false | Variants: "alphabetical" - "length"</b></pre></span>
 </div>
