@@ -5,5 +5,5 @@
 <li><b >GET </b>/pokemon</li>
 <div>
     <h5>Params</h5>
-    <span><pre><b>query</b></pre></span>
+    <span><pre><b>query: String | Required: false</b></pre></span>
 </div>
