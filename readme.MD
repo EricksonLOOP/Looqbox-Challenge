@@ -48,3 +48,17 @@ List< <b>Pokemon</b> >
 </pre></code>
     </div>
 </div>
+<h2>Main Objects</h2>
+<li><b>PokemonDTO</b></li>
+<code>
+<pre>
+    List< String > results
+</pre>
+</code>
+<li><b>Pokemon</b></li>
+<code>
+<pre>
+    String name;
+    String highlight;
+</pre>
+</code>
