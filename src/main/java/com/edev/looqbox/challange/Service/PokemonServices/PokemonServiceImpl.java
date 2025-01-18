@@ -33,20 +33,26 @@ public class PokemonServiceImpl implements PokemonServices {
     @Override
     public ResponseEntity<?> getPokemons(String query, String sort) {
         try {
+            if (query != null) {
+               query = query.replaceAll("\\s+", "");
+            }
+            sort = sort.replaceAll("\\s+", "");
+
+
             if (query == null) {
                 return handleNoQueryCache(sort);
             }
 
             if (cacheServices.isInCache(query.toLowerCase())) {
                 PokemonDTO cachedPokemon = cacheServices.getFromCacheAsPokemonDTO(query.toLowerCase());
-                return ResponseEntity.status(HttpStatus.OK).body(appServices.sort(sort, cachedPokemon));
+                return ResponseEntity.status(HttpStatus.OK).body(appServices.sort(sort, cachedPokemon));  // Passar sort limpo
             }
 
             if (cacheServices.isInCache("noquery")) {
                 PokemonDTO cachedNoQueryPokemon = cacheServices.getFromCacheAsPokemonDTO("noquery");
                 PokemonDTO filteredPokemon = appServices.filterByQuery(query, cachedNoQueryPokemon);
                 cacheServices.addtoCache(query.toLowerCase(), filteredPokemon);
-                return ResponseEntity.status(HttpStatus.OK).body(appServices.sort(sort, filteredPokemon));
+                return ResponseEntity.status(HttpStatus.OK).body(appServices.sort(sort, filteredPokemon));  // Passar sort limpo
             }
 
             PokemonResponse response = okHttpServices.getPokemons(apiUrl);
@@ -61,16 +67,23 @@ public class PokemonServiceImpl implements PokemonServices {
         }
     }
 
+
     @Override
     public ResponseEntity<?> getPokemonsWithHighligth(String query, String sort) {
         try {
+            if (query != null) {
+                query = query.replaceAll("\\s+", "");
+            }
+            sort = sort.replaceAll("\\s+", "");
+
             if (query == null || query.isEmpty()) {
-                return handleNoQueryCache(sort);
+                return handleNoQueryCache(sort.trim());
             }
 
             if (cacheServices.isInCache(query.toLowerCase())) {
                 PokemonDTO cachedPokemon = cacheServices.getFromCacheAsPokemonDTO(query.toLowerCase());
-                return ResponseEntity.ok(appServices.sort(sort, cachedPokemon));
+                PokemonDTO filteredPokemon = appServices.filterByQuery(query, cachedPokemon);
+                return ResponseEntity.ok(new PokemonDTOWithHighlight(appServices.generateHighlightedResponse(filteredPokemon, query)));
             }
 
             if (cacheServices.isInCache("noquery")) {

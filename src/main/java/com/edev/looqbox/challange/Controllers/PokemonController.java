@@ -25,7 +25,7 @@ public class PokemonController {
             @RequestParam(required = false) String query,
             @RequestParam(required = false, defaultValue = "alphabetical") String sort
     ) {
-        return pokemonServices.getPokemons(query, sort.trim());
+        return pokemonServices.getPokemons(query, sort);
 
     }
     @GetMapping("/pokemons/highlight")
