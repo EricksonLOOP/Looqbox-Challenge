@@ -20,8 +20,7 @@
     <li>Make sure you have Docker installed on your system.</li>
     <li>Clone the project repository from GitHub: <code>git clone https://github.com/EricksonLOOP/Looqbox-Challenge.git</code></li>
     <li>Navigate to the project directory: <code>cd project-directory</code></li>
-    <li>Build the Docker image: <code>docker build -t looqbox-test .</code></li>
-    <li>Run the Docker container: <code>docker run -p 8080:8080 looqbox-test</code></li>
+    <li>Build and run: <code>docker-compose up --build</code></li>
     <li>Access the API via <code>http://localhost:8080</code></li>
 </ol>
 
@@ -42,7 +41,7 @@ List< <b>PokemonDTO</b> >
 ]
 </pre></code>
     </div>
-        <div>
+    <div>
    <code><pre>
 <b>HTTP STATUS: 500</b>
 "Error fetching pokemons" 
@@ -66,7 +65,7 @@ List< <b>Pokemon</b> >
 ]
 </pre></code>
     </div>
-        <div>
+    <div>
    <code><pre>
 <b>HTTP STATUS: 500</b>
 "Error fetching pokemons" 
@@ -89,5 +88,5 @@ List< <b>Pokemon</b> >
 </pre>
 </code>
 
-<h2> Fluxogram</h2>
+<h2>Fluxogram</h2>
 <img src="fluxogram.png" alt="A fluxogram example for LooqBox Challenge API">
