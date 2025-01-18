@@ -25,7 +25,7 @@ public class PokemonController {
             @RequestParam(required = false) String query,
             @RequestParam(required = false, defaultValue = "alphabetical") String sort
     ) {
-        return pokemonServices.getPokemons(query.trim(), sort.trim());
+        return pokemonServices.getPokemons(query==null ? null : query.trim(), sort.trim());
 
     }
     @GetMapping("/pokemons/highlight")
@@ -33,6 +33,6 @@ public class PokemonController {
             @RequestParam(required = false) String query,
             @RequestParam(required = false, defaultValue = "alphabetical") String sort
     ){
-        return pokemonServices.getPokemonsWithHighligth(query.trim(),sort.trim());
+        return pokemonServices.getPokemonsWithHighligth(query==null ? null : query.trim(),sort.trim());
     }
 }
