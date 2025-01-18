@@ -1,8 +1,32 @@
 <h1>LooqBox Technical Test</h1>
-<p>This is a answer for the technical test by LooqBox </p>
-<p>This project is a SpringBoot API that consume PokéAPI</p>
+<p>This is an answer for the technical test by LooqBox</p>
+<p>This project is a SpringBoot API that consumes PokéAPI</p>
+
+<h2>How to run it!</h2>
+<p>To run the project, you have two options: using Maven or Docker.</p>
+
+<h3>Option 1: Running with Maven</h3>
+<ol>
+    <li>Make sure you have Java 17+ and Maven installed on your system.</li>
+    <li>Clone the project repository from GitHub: <code>git clone https://github.com/EricksonLOOP/Looqbox-Challenge.git</code></li>
+    <li>Navigate to the project directory: <code>cd project-directory</code></li>
+    <li>Build the project using Maven: <code>mvn clean install</code></li>
+    <li>Run the project: <code>mvn spring-boot:run</code></li>
+    <li>Access the API via <code>http://localhost:8080</code></li>
+</ol>
+
+<h3>Option 2: Running with Docker</h3>
+<ol>
+    <li>Make sure you have Docker installed on your system.</li>
+    <li>Clone the project repository from GitHub: <code>git clone https://github.com/EricksonLOOP/Looqbox-Challenge.git</code></li>
+    <li>Navigate to the project directory: <code>cd project-directory</code></li>
+    <li>Build the Docker image: <code>docker build -t looqbox-test .</code></li>
+    <li>Run the Docker container: <code>docker run -p 8080:8080 looqbox-test</code></li>
+    <li>Access the API via <code>http://localhost:8080</code></li>
+</ol>
+
 <h2>Endpoints</h2>
-<li><b >GET </b>/pokemon</li>
+<li><b>GET</b> /pokemon</li>
 <div>
     <h5>Params</h5>
     <span><pre><b>query: String | Required: false</b></pre></span>
@@ -25,7 +49,8 @@ List< <b>PokemonDTO</b> >
 </pre></code>
     </div>
 </div>
-<li><b >GET </b>/pokemons/highlight/li>
+
+<li><b>GET</b> /pokemons/highlight</li>
 <div>
     <h5>Params</h5>
     <span><pre><b>query: String | Required: false</b></pre></span>
@@ -48,6 +73,7 @@ List< <b>Pokemon</b> >
 </pre></code>
     </div>
 </div>
+
 <h2>Main Objects</h2>
 <li><b>PokemonDTO</b></li>
 <code>
