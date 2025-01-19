@@ -14,9 +14,6 @@ why I used Bubble Sort, and other decisions made during development.</p>
 REST works well for our needs, especially when interacting with external services like the PokéAPI. 
 It's straightforward to set up, scale, and test, making it a perfect fit for this project. 
 Plus, its stateless nature makes it easy to maintain and expand as the system grows. </p>
-<hr/>
-<h2>How to run it!</h2>
-<p>To run the project, you have two options: using Maven or Docker.</p>
 
 <h2>Why Bubble Sort algorithm?</h2>
 <p> Both methods implement the Bubble Sort algorithm, which is a simple sorting algorithm. 
@@ -35,6 +32,9 @@ their ports were not being properly separated, and instead, all three were tryin
 This caused serious issues that made the services unusable. By creating a separate Docker Compose and Dockerfile for each API, 
 I was able to isolate the services, ensuring they run smoothly and independently with proper port allocation.</p>
 
+<hr/>
+<h2>How to run it!</h2>
+<p>To run the project, you have two options: using Maven or Docker.</p>
 
 <h3>Option 1: Running with Maven</h3>
 <ol>
