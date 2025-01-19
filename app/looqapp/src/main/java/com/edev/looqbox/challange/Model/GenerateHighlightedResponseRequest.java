@@ -19,4 +19,9 @@ public class GenerateHighlightedResponseRequest {
     public void setQuery(String query) {
         this.query = query;
     }
+
+    public GenerateHighlightedResponseRequest(String query, PokemonDTO pokemonDTO) {
+        this.query = query;
+        this.pokemonDTO = pokemonDTO;
+    }
 }

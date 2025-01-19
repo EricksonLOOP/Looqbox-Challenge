@@ -1,15 +1,15 @@
 services:
   java-api:
     image: openjdk:17-jdk
-    container_name: LooqBoxTest
+    container_name: looqapi
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Cache.Dockerfile
     ports:
-      - "8080:8080"
+      - "8081:8081"
     volumes:
-      - ./src:/app/src
-      - ./target:/app/target
+      - ./src:/cache/src
+      - ./target:/cache/target
     networks:
       - looqbox
 

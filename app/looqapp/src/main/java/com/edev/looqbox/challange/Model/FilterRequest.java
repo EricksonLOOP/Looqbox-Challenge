@@ -19,4 +19,9 @@ public class FilterRequest {
     public void setQuery(String query) {
         this.query = query;
     }
+
+    public FilterRequest(String query, PokemonDTO pokemonDTO) {
+        this.query = query;
+        this.pokemonDTO = pokemonDTO;
+    }
 }

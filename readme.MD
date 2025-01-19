@@ -1,7 +1,8 @@
 <h1>LooqBox Technical Test</h1>
 <p>This is an answer for the technical test by LooqBox</p>
 <p>This project is a SpringBoot API that consumes PokéAPI</p>
-
+<h2>Diagram and Fluxogram</h2>
+<p>Diagram and fluxogram[https://www.figma.com/board/Ne7WdxtUhKdgHJPXJVBqZt/LooqBox-Teste-Erickson-Augusto---Fluxograma?node-id=0-1&t=SV9aBqO4QV5AHZGt-1]</p>
 <h2>How to run it!</h2>
 <p>To run the project, you have two options: using Maven or Docker.</p>
 
@@ -87,6 +88,3 @@ List< <b>Pokemon</b> >
     String highlight;
 </pre>
 </code>
-
-<h2>Fluxogram</h2>
-<img src="fluxogram.png" alt="A fluxogram example for LooqBox Challenge API">

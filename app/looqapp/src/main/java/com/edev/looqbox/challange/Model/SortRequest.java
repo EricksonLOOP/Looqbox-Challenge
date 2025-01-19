@@ -19,4 +19,9 @@ public class SortRequest {
     public void setSort(String sort) {
         this.sort = sort;
     }
+
+    public SortRequest(String sort, PokemonDTO pokemonDTO) {
+        this.sort = sort;
+        this.pokemonDTO = pokemonDTO;
+    }
 }

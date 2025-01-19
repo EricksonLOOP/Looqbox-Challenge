@@ -19,4 +19,9 @@ public class CacheRequest {
     public void setKey(String key) {
         this.key = key;
     }
+
+    public CacheRequest(String key, PokemonDTO pokemonDTO) {
+        this.key = key;
+        this.pokemonDTO = pokemonDTO;
+    }
 }
