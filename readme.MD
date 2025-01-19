@@ -28,14 +28,14 @@
 <p>Repeat the above steps for each API (cache, looqapi, looqapp) to start all services.</p>
 <hr/>
 <h2>Why Bubble Sort algorithm?</h2>
-<p>// Both methods implement the Bubble Sort algorithm, which is a simple sorting algorithm. 
-// When the algorithm is sorting in reverse order, the worst-case scenario for Big-θ occurs, as it takes the most time, 
-// leading to the formula O(n²), where n = list.length, since each element must be compared with the rest of the list. 
-// If the list is already sorted, the best-case scenario occurs; however, the algorithm will still need to traverse the entire list to compare all elements.
-// The space complexity is O(1), as there is no need for additional memory.
+<p> Both methods implement the Bubble Sort algorithm, which is a simple sorting algorithm. 
+ When the algorithm is sorting in reverse order, the worst-case scenario for Big-θ occurs, as it takes the most time, 
+leading to the formula O(n²), where n = list.length, since each element must be compared with the rest of the list. 
+If the list is already sorted, the best-case scenario occurs; however, the algorithm will still need to traverse the entire list to compare all elements.
+The space complexity is O(1), as there is no need for additional memory.
 
-// I chose the Bubble Sort system because, although it is not the most efficient, it is the most cohesive for an application that
-// does not transfer large amounts of data, like this one.
+ I chose the Bubble Sort system because, although it is not the most efficient, it is the most cohesive for an application that
+ does not transfer large amounts of data, like this one.
 </p>
 <hr/>
 <h2>Endpoints</h2>
