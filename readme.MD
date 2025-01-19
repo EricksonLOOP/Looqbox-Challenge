@@ -3,6 +3,13 @@
 <p>This project is a SpringBoot API that consumes PokéAPI</p>
 <h2>Diagram and Fluxogram</h2>
 <p>Diagram and fluxogram[https://www.figma.com/board/Ne7WdxtUhKdgHJPXJVBqZt/LooqBox-Teste-Erickson-Augusto---Fluxograma?node-id=0-1&t=SV9aBqO4QV5AHZGt-1]</p>
+<hr/>
+<h2>Why REST Microservices Style?</h2> 
+<p> I chose the REST microservices style because it's simple, widely used, and easy to implement. 
+REST works well for our needs, especially when interacting with external services like the PokéAPI. 
+It's straightforward to set up, scale, and test, making it a perfect fit for this project. 
+Plus, its stateless nature makes it easy to maintain and expand as the system grows. </p>
+<hr/>
 <h2>How to run it!</h2>
 <p>To run the project, you have two options: using Maven or Docker.</p>
 
