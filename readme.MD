@@ -10,20 +10,23 @@
 <ol>
     <li>Make sure you have Java 17+ and Maven installed on your system.</li>
     <li>Clone the project repository from GitHub: <code>git clone https://github.com/EricksonLOOP/Looqbox-Challenge.git</code></li>
-    <li>Navigate to the project directory: <code>cd project-directory</code></li>
+    <li>Navigate to the API directory you want to run (cache, looqapi, looqapp): <code>cd app/[api-directory]</code></li>
     <li>Build the project using Maven: <code>mvn clean install</code></li>
     <li>Run the project: <code>mvn spring-boot:run</code></li>
-    <li>Access the API via <code>http://localhost:8080</code></li>
+    <li>Access the API via <code>http://localhost:8080</code></li> <!-- or the correct port depending on the API -->
 </ol>
 
 <h3>Option 2: Running with Docker</h3>
 <ol>
     <li>Make sure you have Docker installed on your system.</li>
     <li>Clone the project repository from GitHub: <code>git clone https://github.com/EricksonLOOP/Looqbox-Challenge.git</code></li>
-    <li>Navigate to the project directory: <code>cd project-directory</code></li>
-    <li>Build and run: <code>docker-compose up --build</code></li>
-    <li>Access the API via <code>http://localhost:8080</code></li>
+    <li>Navigate to the API directory you want to run (cache, looqapi, looqapp): <code>cd app/[api-directory]</code></li>
+    <li>Build and run the Docker container: <code>docker-compose up --build</code></li>
+    <li>Access the API via <code>http://localhost:8080</code></li> <!-- or the correct port depending on the API -->
 </ol>
+
+<p>Repeat the above steps for each API (cache, looqapi, looqapp) to start all services.</p>
+<hr/>
 
 <h2>Endpoints</h2>
 <li><b>GET</b> /pokemon</li>
