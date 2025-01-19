@@ -13,7 +13,7 @@
     <li>Navigate to the API directory you want to run (cache, looqapi, looqapp): <code>cd app/[api-directory]</code></li>
     <li>Build the project using Maven: <code>mvn clean install</code></li>
     <li>Run the project: <code>mvn spring-boot:run</code></li>
-    <li>Access the API via <code>http://localhost:8080</code></li> <!-- or the correct port depending on the API -->
+    <li>Access the API via <code>http://localhost:8080</code></li> 
 </ol>
 
 <h3>Option 2: Running with Docker</h3>
@@ -22,12 +22,22 @@
     <li>Clone the project repository from GitHub: <code>git clone https://github.com/EricksonLOOP/Looqbox-Challenge.git</code></li>
     <li>Navigate to the API directory you want to run (cache, looqapi, looqapp): <code>cd app/[api-directory]</code></li>
     <li>Build and run the Docker container: <code>docker-compose up --build</code></li>
-    <li>Access the API via <code>http://localhost:8080</code></li> <!-- or the correct port depending on the API -->
+    <li>Access the API via <code>http://localhost:8080</code></li> 
 </ol>
 
 <p>Repeat the above steps for each API (cache, looqapi, looqapp) to start all services.</p>
 <hr/>
+<h2>Why Bubble Sort algorithm?</h2>
+<p>// Both methods implement the Bubble Sort algorithm, which is a simple sorting algorithm. 
+// When the algorithm is sorting in reverse order, the worst-case scenario for Big-θ occurs, as it takes the most time, 
+// leading to the formula O(n²), where n = list.length, since each element must be compared with the rest of the list. 
+// If the list is already sorted, the best-case scenario occurs; however, the algorithm will still need to traverse the entire list to compare all elements.
+// The space complexity is O(1), as there is no need for additional memory.
 
+// I chose the Bubble Sort system because, although it is not the most efficient, it is the most cohesive for an application that
+// does not transfer large amounts of data, like this one.
+</p>
+<hr/>
 <h2>Endpoints</h2>
 <li><b>GET</b> /pokemon</li>
 <div>
