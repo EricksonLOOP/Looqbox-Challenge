@@ -26,12 +26,6 @@ I chose the Bubble Sort system because, although it is not the most efficient, i
 does not transfer large amounts of data, like this one.
 </p>
 
-<h2>Why a DockerCompose and a Dockerfile for each API?</h2>
-<p>My machine was encountering some issues with Docker. When I tried to run all three services in the same container, 
-their ports were not being properly separated, and instead, all three were trying to use the same port. 
-This caused serious issues that made the services unusable. By creating a separate Docker Compose and Dockerfile for each API, 
-I was able to isolate the services, ensuring they run smoothly and independently with proper port allocation.</p>
-
 <hr/>
 <h2>How to run it!</h2>
 <p>To run the project, you have two options: using Maven or Docker.</p>
@@ -50,12 +44,12 @@ I was able to isolate the services, ensuring they run smoothly and independently
 <ol>
     <li>Make sure you have Docker installed on your system.</li>
     <li>Clone the project repository from GitHub: <code>git clone https://github.com/EricksonLOOP/Looqbox-Challenge.git</code></li>
-    <li>Navigate to the API directory you want to run (cache, looqapi, looqapp): <code>cd app/[api-directory]</code></li>
+    <li>Navigate to the API directory you want to run (cache, looqapi, looqapp): <code>cd Looqbox-Challenge</code></li>
     <li>Build and run the Docker container: <code>docker-compose up --build</code></li>
     <li>Access the API via <code>http://localhost:8080</code></li> 
 </ol>
 
-<p>Repeat the above steps for each API (cache, looqapi, looqapp) to start all services.</p>
+<p>If you're with Maeven repeat the above steps for each API (cache, looqapi, looqapp) to start all services.</p>
 <hr/>
 <hr/>
 <h2>Endpoints</h2>
