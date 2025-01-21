@@ -1,0 +1,49 @@
+services:
+  looqapi:
+    image: looqapi
+    container_name: looqapi
+    build:
+      context: ./app/looqapi
+      dockerfile: Looqapi.Dockerfile
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./app/looqapi/src:/looqapi/src
+      - ./app/looqapi/target:/looqapi/target
+    environment:
+      - CACHE_API_URL=http://looqcache:8081/cache
+      - APP_API_URL=http://looqapp:8082/looqapp
+    networks:
+      - looqbox
+
+  looqcache:
+    image: looqcache
+    container_name: looqcache
+    build:
+      context: ./app/cache
+      dockerfile: Cache.Dockerfile
+    ports:
+      - "8081:8081"
+    volumes:
+      - ./app/cache/src:/cache/src
+      - ./app/cache/target:/cache/target
+    networks:
+      - looqbox
+
+  looqapp:
+    image: looqapp
+    container_name: looqapp
+    build:
+      context: ./app/looqapp
+      dockerfile: Looqapp.Dockerfile
+    ports:
+      - "8082:8082"
+    volumes:
+      - ./app/looqapp/src:/looqapp/src
+      - ./app/looqapp/target:/looqapp/target
+    networks:
+      - looqbox
+
+networks:
+  looqbox:
+    driver: bridge

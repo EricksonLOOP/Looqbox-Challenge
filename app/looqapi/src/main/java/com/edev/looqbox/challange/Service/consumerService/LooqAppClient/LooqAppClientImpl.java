@@ -14,7 +14,7 @@ import java.util.List;
 @Service
 public class LooqAppClientImpl implements LooqAppClient {
     private final RestTemplate restTemplate;
-    private String LOOQ_APP_BASE_URL = "http://localhost:8082/looqapp/";
+    private String LOOQ_APP_BASE_URL = System.getenv("APP_API_URL");
     public LooqAppClientImpl(RestTemplate restTemplate) {
         this.restTemplate = restTemplate;
     }

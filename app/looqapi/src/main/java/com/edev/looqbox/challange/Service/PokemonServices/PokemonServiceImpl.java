@@ -65,7 +65,7 @@ public class PokemonServiceImpl implements PokemonServices {
             return ResponseEntity.status(HttpStatus.OK).body(filteredPokemon);
 
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error fetching pokemons: " + e.getCause());
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error fetching pokemons: " + System.getenv("CACHE_API_URL"));
         }
     }
 

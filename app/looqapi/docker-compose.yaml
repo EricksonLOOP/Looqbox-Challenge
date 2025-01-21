@@ -1,7 +1,7 @@
 services:
   java-api:
     image: openjdk:17-jdk
-    container_name: looqapi
+    container_name: looqapiC
     build:
       context: .
       dockerfile: Looqapi.Dockerfile

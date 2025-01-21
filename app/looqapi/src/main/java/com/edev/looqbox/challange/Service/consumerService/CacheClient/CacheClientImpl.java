@@ -11,7 +11,7 @@ import org.springframework.web.client.RestTemplate;
 public class CacheClientImpl implements CacheClient {
 
     private final RestTemplate restTemplate;
-    private final String cacheServiceUrl = "http://localhost:8081/cache";
+    private final String cacheServiceUrl = System.getenv("CACHE_API_URL");
 
     @Autowired
     public CacheClientImpl(RestTemplate restTemplate) {

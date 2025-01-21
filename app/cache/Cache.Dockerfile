@@ -13,4 +13,4 @@ COPY ./src /cache/src
 RUN ./mvnw clean package -DskipTests
 
 EXPOSE 8081
-CMD ["java", "-jar", "/cache/target/cache-0.0.1-SNAPSHOT.jar"]
+CMD ["java", "-jar", "/cache/target/looqcache-0.0.1-SNAPSHOT.jar"]

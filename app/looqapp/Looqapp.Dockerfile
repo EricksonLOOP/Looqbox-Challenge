@@ -14,3 +14,4 @@ RUN ./mvnw clean package -DskipTests
 
 EXPOSE 8082
 CMD ["java", "-jar", "/looqapp/target/Looqbox-Challenge-0.0.1-SNAPSHOT.jar"]
+
