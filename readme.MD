@@ -34,7 +34,7 @@ does not transfer large amounts of data, like this one.
 <ol>
     <li>Make sure you have Java 17+ and Maven installed on your system.</li>
     <li>Clone the project repository from GitHub: <code>git clone https://github.com/EricksonLOOP/Looqbox-Challenge.git</code></li>
-    <li>Navigate to the API directory you want to run (cache, looqapi, looqapp): <code>cd app/[api-directory]</code></li>
+    <li>Navigate to the API directory you want to run (cache, looqapi, looqapp): <code>cd Looqbox-Challenge</code></li>
     <li>Build the project using Maven: <code>mvn clean install</code></li>
     <li>Run the project: <code>mvn spring-boot:run</code></li>
     <li>Access the API via <code>http://localhost:8080</code></li> 
